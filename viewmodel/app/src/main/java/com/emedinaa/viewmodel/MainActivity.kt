@@ -18,21 +18,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         viewModel = ViewModelProviders.of(this).get(ItemViewModel::class.java)
-
-        val observer = Observer<String>{
-            adapter.addItem(Item(it))
+        val observer = Observer<MutableList<Item>>{
+            adapter.updateItems()
         }
-        viewModel.item.observe(this,observer)
+        viewModel.getItems().observe(this,observer)
 
         //ui
+        adapter= ItemAdapter(viewModel.getItems().value?: mutableListOf())
         recyclerView.layoutManager= LinearLayoutManager(this)
-        adapter= ItemAdapter(mutableListOf())
         recyclerView.adapter= adapter
 
         buttonAdd.setOnClickListener {
             item= editText.text.toString()
-            item.let {itemIt->
-                viewModel.item.value=itemIt
+            item?.let {itemIt->
+                viewModel.addItem(Item(itemIt))
                 editText.text.clear()
             }
         }

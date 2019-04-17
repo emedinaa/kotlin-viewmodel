@@ -29,6 +29,10 @@ class ItemAdapter(var items:MutableList<Item>):RecyclerView.Adapter<ItemAdapter.
         notifyItemInserted((items.size-1))
     }
 
+    fun updateItems(){
+        notifyDataSetChanged()
+    }
+
     class ViewHolder(view:View):RecyclerView.ViewHolder(view){
         val textView = view.findViewById<TextView>(R.id.textView)
     }
