@@ -1,9 +1,9 @@
 # kotlin-viewmodel
 Basic samples about ViewModel component
 
-<img src="./screenshot_landscape.png" height="320"> <img src="./screenshot_portrait.png" height="480"> 
+<img src="screenshots/screenshot_landscape.png" height="320"> <img src="screenshots/screenshot_portrait.png" height="480">
 
-<img src="./android_view_model720.gif?raw=true" height="480">
+<img src="screenshots/android_view_model720.gif?raw=true" height="480">
 
 
 # feedback
